@@ -949,7 +949,7 @@ where
     }
 
     async fn clear_irq_status(&mut self) -> Result<(), RadioError> {
-        let op_code_and_irq_status = [OpCode::ClrIrqStatus.value(), 0xffu8, 0xffu8];
+        let op_code_and_irq_status = [OpCode::ClrIrqStatus.value(), 0xffu8, 0xffu8]; // clear all interrupts
         self.intf.write(&op_code_and_irq_status, false).await
     }
 
